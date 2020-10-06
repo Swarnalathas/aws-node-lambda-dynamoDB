@@ -21,7 +21,7 @@ module.exports.create = (event, context, callback) => {
   const params = {
     TableName: process.env.DYNAMODB_TABLE,
     Item: {
-      id: "ttt6777",
+      id: context.awsRequestId,
       text: data.text,
       checked: false,
       createdAt: timestamp,
