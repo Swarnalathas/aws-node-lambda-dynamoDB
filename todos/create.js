@@ -1,6 +1,6 @@
 'use strict';
 
-// const uuid = require('uuid');
+const uuid = require('uuid');
 const AWS = require('aws-sdk'); // eslint-disable-line import/no-extraneous-dependencies
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
@@ -21,7 +21,7 @@ module.exports.create = (event, context, callback) => {
   const params = {
     TableName: process.env.DYNAMODB_TABLE,
     Item: {
-      id: 'fdff767676',
+      id: uuid.v1(),
       text: data.text,
       checked: false,
       createdAt: timestamp,
